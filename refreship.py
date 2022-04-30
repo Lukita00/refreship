@@ -1,6 +1,8 @@
 import os
+import setup
 from helper import Helper
 
+AZURE_AUTOMATION = setup.AZURE_AUTOMATION
 class Main:
 
     def __init__(self):
@@ -10,46 +12,40 @@ class Main:
 
         os.system('clear')
         print('''
-        --------------------------------------------------
-        --==        Iniciar atualização de IP         ==--
-        --------------------------------------------------
+--------------------------------------------------
+--==        Iniciar atualização de IP         ==--
+--------------------------------------------------
         ''')
 
-        os.system('''
-                echo \n
-                cd /Users/lucasaraujo/Development/Azure_Automation/
-                echo \n
+        os.system(f'''
+                cd {AZURE_AUTOMATION}
                 git fetch --all
                 git reset --hard origin/master
                 git pull
-                \n
             ''')
 
-        print(f'-----------------------------------------')
+        print('-----------------------------------------')
         print(f'IP Externo atual  ----> {myip}')
         print(f'IP no repositorio ----> {ipinrepo}')
-        print(f'-----------------------------------------')
+        print('-----------------------------------------')
 
         if myip != ipinrepo.strip('\n'):
-
-
-            print(f'\n Atualizar arquivo ....... \n')
+            print('\n Atualizar arquivo ....... \n')
 
             Helper.attip()
 
-            os.system('''
-                echo \n
-                cd /Users/lucasaraujo/Development/Azure_Automation/
+            os.system(f'''
+                cd {AZURE_AUTOMATION}
                 git add DEV/users_access_restrictions_apps.txt
-                git commit -m "add new ip"
+                git commit -m "Atualização de IP"
                 git push origin master
             ''')
 
-            print(f'\n IP Atualizado no repositório: {Helper.myip()}')
-            print('--------------------------------------------------')
+            print(f'\nIP Atualizado no repositório: {Helper.myip()}')
+            print('-----------------------------------------')
         
         else:
-            print('\n IPs iguais atualização não executado ... \n')
+            print('\nIPs iguais, atualização não executada ...')
 
 
 if __name__ == "__main__":

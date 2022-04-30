@@ -3,4 +3,5 @@ import os
 
 load_dotenv()
 
-AUTOMATION_PATH = os.getenv("AUTOMATION_PATH")
+AZURE_AUTOMATION = os.getenv("AZURE_AUTOMATION")
+NOME             = os.getenv("NOME")
