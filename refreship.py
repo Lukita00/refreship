@@ -1,4 +1,5 @@
 import os
+import platform
 import setup
 from helper import Helper
 
@@ -10,7 +11,11 @@ class Main:
         myip     = Helper.myip()
         ipinrepo = Helper.ipinrepo()
 
-        os.system('clear')
+        if platform.system() == 'Windows':
+            os.system('cls')
+        else:
+            os.system('clear')
+            
         print('''
 --------------------------------------------------
 --==        Iniciar atualização de IP         ==--

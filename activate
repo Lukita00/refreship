@@ -1,0 +1,21 @@
+echo Iniciar configurações ...
+python3 -V
+
+if [ ! -f "./venv" ] ; then 
+echo Criando ambiente virtual ...
+python3 -m venv venv
+fi
+
+echo Instalando as bibliotecas necessárias ...
+
+source ./venv/bin/activate
+pip install -r requirements.txt
+
+if [ ! -f "./refreship" ] ; then
+echo criando arquivo de execução  refreship ...
+echo $PWD"/venv/bin/python "$PWD"/refreship.py" > refreship
+chmod +x refreship
+fi
+
+echo
+echo *Verifique o arquivo .env neste mesmo diretório para configurações relevantes a execução do script
