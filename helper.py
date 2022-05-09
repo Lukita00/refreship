@@ -38,8 +38,9 @@ class Helper(object):
         conteudo = arquivo.readlines()
         arquivo.close()
         for linha in conteudo:
-            if linha[0:10] == f'Allow{NOME}':
-                return linha[11:].strip(' ').strip('''
+            nome,ip = linha.split('=')
+            if nome == f'Allow{NOME}':
+                return ip.strip(' ').strip('''
                 ''')
 
         

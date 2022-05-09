@@ -14,5 +14,5 @@ echo Instalando as bibliotecas necessárias ...
 if not exist "refreship.bat" (
     echo Criando arquivo de execução refreship.bat ...
     echo %~dp0venv\Scripts\python %~dp0refreship.bat
-    echo %~dp0venv\Scripts\python %~dp0refreship > refreship
+    echo %~dp0venv\Scripts\python %~dp0refreship > refreship.bat
 )
