@@ -24,8 +24,9 @@ class Helper(object):
         arquivo.close()
         i = 0
         for linha in conteudo:
-            if linha[0:10] == f'Allow{NOME}':
-                novaLinha   =  linha[0:11] + Helper.myip() + '\n'
+            nome = linha.split('=')[0]
+            if nome == f'Allow{NOME}':
+                novaLinha   =  nome+ '=' + Helper.myip() + '\n'
                 conteudo[i] = novaLinha
             i += 1
         
