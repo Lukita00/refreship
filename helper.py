@@ -44,10 +44,14 @@ class Helper(object):
                 return ip.strip(' ').strip('''
                 ''')
 
+    def meuip():
+        return requests.get('http://meuip.com/api/meuip.php').text
+
         
                 
 
 if __name__ == "__main__":
-    print(Helper.myip())
-    print(Helper.ipinrepo())
+    # print(Helper.myip())
+    # print(Helper.ipinrepo())
     # Helper.attip()
+    print(Helper.meuip())

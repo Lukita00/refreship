@@ -8,7 +8,7 @@ class Main:
 
     def __init__(self):
 
-        myip     = Helper.myip()
+        myip     = Helper.meuip()
         ipinrepo = Helper.ipinrepo()
 
         if platform.system() == 'Windows':
